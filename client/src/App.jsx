@@ -1,35 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Home from "./pages/Home";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="min-h-screen bg-gray-200 flex items-center justify-center">
+      <Home />
+    </div>
   )
 }
+export default App;
 
-export default App
+// This is the main component of the application. It imports the Home component and renders it inside a div with some styling.
+// The div has a minimum height of the screen and a gray background, and it centers the Home component both vertically and horizontally.
+// The Home component is responsible for displaying the welcome message and description of the application.
+// The Home component is imported from the pages directory and is used to display the main content of the application.
+// The App component is the main entry point of the application and is responsible for rendering the Home component.
+// The App component is exported as the default export of the module, so it can be imported and used in other parts of the application.
+// The App component is the main component of the application. It imports the Home component and renders it inside a div with some styling. 
