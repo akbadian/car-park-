@@ -1,17 +1,21 @@
 const express = require('express');
 const cors = require('cors');      
 const mongooose = require('mongoose');
+const carsRoute = require('./routes/carRoutes'); 
 require('dotenv').config();
 
 //App
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-//const carsRoute = require('./routes/cars'); //routes
-//app.use('api/cars', carsRoute); //routes
+// Routes
+app.use('/api/cars', carsRoute);
 
-// Connect to MongoDB
+
+// Connect to MongoDB and Start Server
 mongooose
     .connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
