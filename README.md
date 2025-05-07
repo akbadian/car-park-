@@ -14,4 +14,4 @@ Welcome to the Car Park Management System! This project allows you to manage car
 Clone the repo to your local machine:
 
 ```bash
-git clone https://github.com/your-username/car-park.git
+git clone https://github.com/akbadian/car-park.git
