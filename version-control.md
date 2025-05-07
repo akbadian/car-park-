@@ -84,4 +84,15 @@ git checkout main
 git pull origin main
 ```
 
----
+------------------------------------------------------------------------------------------
+# Pulling Changes from `main` into Your `backend` Branch
+
+To ensure your `backend` branch is up to date with the latest changes from the `main` branch, follow these steps:
+
+## Steps:
+
+1. **Switch to your `backend` branch**:
+   Make sure you're working on the correct branch before pulling the changes from `main`.
+
+   ```bash
+   git checkout backend
