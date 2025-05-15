@@ -18,6 +18,10 @@ const CarSchema = new mongoose.Schema({
     enum: ['available', 'occupied', 'maintenance'],
     default: 'available',
   },
+  entryTime: {
+    type : Date,
+    default: Date.now
+  }
 }, { timestamps: true });
 
 module.exports = mongoose.model('Car', CarSchema);
