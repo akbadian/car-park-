@@ -1,4 +1,6 @@
 const Car = require('../models/Car');
+const { validationResult } = require('express-validator');
+// Middleware to validate request data
 
 // get all cars
 exports.getAllCars = async (req, res) => {
@@ -25,9 +27,14 @@ exports.getCarById = async (req, res) => {
 
 // Create a new car
 exports.createCar = async (req, res) => {
+    // Validate request data
+    const errors = validationResult(req);
+    if (!errors.isEmpty() ) {
+        return res.status(400).json({ errors : errors.array() });
+    }
     try { const newCar = new Car(req.body);
           const savedCar = await newCar.save();
-        res.status(201).json(savedCar);
+          res.status(201).json(savedCar);
     } catch (error) {
         res.status(400).json({ error : error.message});
     }

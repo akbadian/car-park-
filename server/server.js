@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');      
 const mongooose = require('mongoose');
 const carsRoute = require('./routes/carRoutes'); 
+const authRoutes = require('./routes/authRoutes'); // Import the auth routes
+const authMiddleware = require('./middleware/authMiddleware'); // Import the auth middleware
 require('dotenv').config();
 
 //App
@@ -10,6 +12,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use('/api/auth', authRoutes); // Use the auth routes
+app.use(authMiddleware); // Use the auth middleware for all routes after this point
 
 // Routes
 app.use('/api/cars', carsRoute);
