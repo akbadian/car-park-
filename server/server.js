@@ -4,6 +4,8 @@ const mongooose = require('mongoose');
 const carsRoute = require('./routes/carRoutes'); 
 const authRoutes = require('./routes/authRoutes'); // Import the auth routes
 const authMiddleware = require('./middleware/authMiddleware'); // Import the auth middleware
+const clientRoutes = require('./routes/clientRoutes'); // Import the client routes
+const resaRoutes = require('./routes/resaRoutes'); // Import the reservation routes
 require('dotenv').config();
 
 //App
@@ -12,12 +14,24 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/api/auth', authRoutes); // Use the auth routes
-app.use(authMiddleware); // Use the auth middleware for all routes after this point
 
-// Routes
-app.use('/api/cars', carsRoute);
+// Auth Routes - No middleware needed here
+app.use('/api/auth', authRoutes); 
 
+// Apply auth middleware only after open routes
+app.use(authMiddleware); // Protect routes after this point
+
+
+// Protected Routes - Middleware applied
+app.use('/api/cars', authMiddleware, carsRoute);
+app.use('/api/clients', authMiddleware, clientRoutes);
+app.use('/api/resas', authMiddleware, resaRoutes);
+
+// Error handling middleware    
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
 
 // Connect to MongoDB and Start Server
 mongooose

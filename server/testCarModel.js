@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const Car = require('./models/cars');
+const Car = require('./models/Car');
 
 mongoose.connect(process.env.MONGO_URI)
     .then(async () => {
