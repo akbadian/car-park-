@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className="text-white bg-gray-900 font-sans">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-gradient-to-br from-black via-gray-800 to-gray-900">
+      <section className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-linear-to-br from-black via-gray-800 to-gray-900">
         <h1 className="text-5xl font-bold mb-4">CarPark, Sensationel !</h1>
         <p className="text-lg mb-6">Vivez Elegance, Pouvoir, et Performance a travers nos autos</p>
         <div className="flex flex-row gap-4">

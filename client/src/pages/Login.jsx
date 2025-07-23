@@ -17,7 +17,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
       <div className="relative z-10 w-full max-w-[320px] bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-5">
         <h1 className="text-xl font-bold text-center text-white mb-3">Welcome Back</h1>
         <p className="text-center text-gray-400 text-sm mb-5">Sign in to your CarPark account</p>
@@ -32,7 +32,7 @@ const Login = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-transparent text-white w-full placeholder-gray-400 text-sm focus:outline-none"
+                className="bg-transparent text-white w-full placeholder-gray-400 text-sm focus:outline-hidden"
                 required
               />
             </div>
@@ -47,13 +47,13 @@ const Login = () => {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-transparent text-white w-full placeholder-gray-400 text-sm focus:outline-none"
+                className="bg-transparent text-white w-full placeholder-gray-400 text-sm focus:outline-hidden"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-gray-400 hover:text-white ml-2 focus:outline-none"
+                className="text-gray-400 hover:text-white ml-2 focus:outline-hidden"
               >
                 {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
               </button>
@@ -71,7 +71,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-2 rounded-md font-medium hover:from-purple-600 hover:to-pink-600 focus:outline-none transform hover:scale-105 transition"
+            className="w-full bg-linear-to-r from-purple-500 to-pink-500 text-white py-2 rounded-md font-medium hover:from-purple-600 hover:to-pink-600 focus:outline-hidden transform hover:scale-105 transition"
           >
             {isLoading ? 'Signing in...' : (
               <span className="flex items-center justify-center text-sm">

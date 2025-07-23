@@ -16,7 +16,7 @@ import {
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const Sidebar = () => (
-  <div className="w-64 min-h-screen bg-gradient-to-b from-purple-800 to-purple-900 text-white p-5 shadow-lg">
+  <div className="w-64 min-h-screen bg-linear-to-b from-purple-800 to-purple-900 text-white p-5 shadow-lg">
     <h2 className="text-2xl font-bold mb-8 text-center">🚗 CarPark</h2>
     
     <ul className="space-y-4">
