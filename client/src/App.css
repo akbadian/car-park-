@@ -1,4 +1,9 @@
+@config "./tailwind.config.js";
 @import "tailwindcss";
+@import "tailwindcss/typography";
+@import "tailwindcss/forms";
+@import "tailwindcss/line-clamp";
+@import "tailwindcss/aspect-ratio";
 
 #root {
   @apply max-w-[1280px] mx-auto px-8 py-8 text-center;
