@@ -9,10 +9,14 @@ function App() {
   return (
     <Router>
       {/* Common Layout */}
-      <div className="min-h-screen bg-gray-100">
-        <Navbar /> {/* Navbar stays on top for all routes */}
+      <Navbar /> {/* Navbar stays on top for all routes */}
+      <div /*className="bg-cover bg-center bg-no-repeat bg-fixed" style={{height: 700, backgroundImage: `url(gclass.jpeg')` }}*/>
+        
 
         {/* Page Content */}
+      <div className="relative min-h-screen">
+        <div className="absolute inset-0 bg-black opacity-70 z-0" />
+        <div className="relative z-10">
         <main className="p-4">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -21,6 +25,8 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </main>
+        </div>
+        </div>
       </div>
     </Router>
   );
