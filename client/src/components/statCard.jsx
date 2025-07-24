@@ -2,13 +2,13 @@ import React from 'react';
 
 const StatsCard = ({ title, value, icon }) => {
   return (
-    <div className="bg-white shadow-md rounded-lg p-5 flex items-center space-x-4 w-64">
-      <div className="text-purple-600 text-3xl">
+    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-5 flex items-center gap-4 w-64 shadow-md transition-transform duration-300 hover:scale-[1.03] hover:shadow-xl">
+      <div className="text-gray-400 text-3xl drop-shadow-sm">
         {icon}
       </div>
       <div>
-        <h4 className="text-gray-500 text-sm">{title}</h4>
-        <p className="text-xl font-bold">{value}</p>
+        <h4 className="text-gray-200 text-sm tracking-wide">{title}</h4>
+        <p className="text-white text-xl font-semibold">{value}</p>
       </div>
     </div>
   );
