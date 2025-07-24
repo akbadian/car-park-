@@ -3,6 +3,8 @@ import { Bar } from 'react-chartjs-2';
 import StatsCard from '@/components/statCard';
 import { FaChartBar, FaCar, FaCogs, FaClipboardList, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import CarList from '@/components/carList';
+
 
 import {
   Chart as ChartJS,
@@ -47,7 +49,7 @@ const Sidebar = () => (
   </div>
 );
 
-const Dashboard = () => {
+function Dashboard() {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
@@ -79,14 +81,19 @@ const Dashboard = () => {
             <StatsCard title="Total Rentals" value="320" icon={<FaClipboardList />} />
           </div>
 
-          <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl shadow-lg">
+          <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl shadow-lg mb-8">
             <h3 className="text-lg font-bold mb-4">Rental Trends</h3>
             <Bar data={data} options={options} />
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-lg p-6 rounded-xl shadow-lg">
+            <h3 className="text-lg font-bold mb-4">Car List</h3>
+            <CarList />
           </div>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Dashboard;
