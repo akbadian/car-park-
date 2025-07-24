@@ -1,41 +1,45 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className="text-white bg-gray-900 font-sans">
+    <div className="text-white font-sans">
       {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center min-h-screen text-center px-6 bg-linear-to-br from-black via-gray-800 to-gray-900">
-        <h1 className="text-5xl font-bold mb-4">CarPark, Sensationel !</h1>
-        <p className="text-lg mb-6">Vivez Elegance, Pouvoir, et Performance a travers nos autos</p>
+      <section className="min-h-[90vh] flex flex-col items-center justify-center text-center px-6 font-sans text-white">
+        <h1 className="text-4xl font-extrabold mb-4 tracking-tight animate-fade-in animation-delay-[200ms]">
+            CarPark, Conduisez vos rêves.
+          </h1>
+
+          <p className="text-lg italic text-gray-300 mb-2 max-w-2xl animate-slide-up animation-delay-[500ms]">
+            Plus qu'une voiture. Une émotion.
+          </p>
+
+          <p className="text-lg italic text-gray-300 mb-6 max-w-2xl animate-slide-up animation-delay-[700ms]">
+            De l’asphalte au rêve, laissez-vous guider vers des sensations uniques au volant des plus belles mécaniques.
+          </p>
+        {/* 🛒 CTA Buttons with Routing */}
         <div className="flex flex-row gap-4">
-          <button className="px-20 py-3 bg-white text-gray-900 font-semibold rounded-md hover:bg-gray-200 transition">Achat</button>
-          <button className="px-20 py-3 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition">Location</button>
+          <Link to="/achat">
+            <button className="px-6 py-2 border border-white/30 text-white rounded-full backdrop-blur-md hover:bg-white/10 hover:scale-[1.03] transition-all duration-300 shadow-md">
+              Achat
+            </button>
+          </Link>
+          <Link to="/location">
+            <button className="px-6 py-2 border border-white/30 text-white rounded-full backdrop-blur-md hover:bg-white/10 hover:scale-[1.03] transition-all duration-300 shadow-md">
+              Location
+            </button>
+          </Link>
         </div>
       </section>
-
-      {/*Features Section 
-      <section className="py-20 px-6 bg-gray-950">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[1].map((i) => (
-            <div key={i} className="bg-gray-800 p-6 rounded-lg text-center shadow-lg">
-              <div className="mb-4 text-3xl">🚗</div>
-              <h2 className="text-xl font-bold mb-2">Feature {i}</h2>
-              <p className="text-sm">High-end details tailored for exclusivity.</p>
-            </div>
-          ))}
-        </div>
-      </section>
-      */}
-
 
       {/* Footer Section */}
-      <footer className="py-12 px-6 bg-gray-950 text-center text-sm">
+      <footer className="py-12 px-6 text-center text-sm">
         <div className="mb-4">
-          <a href="#" className="mx-2 hover:underline">Home</a>
+          <Link to="/" className="mx-2 hover:underline">Home</Link>
           <a href="#" className="mx-2 hover:underline">About</a>
           <a href="#" className="mx-2 hover:underline">Contact</a>
         </div>
-        <p className="mt-4 text-gray-400">© 2025 Luxury Motors. All rights reserved.</p>
+        <p className="mt-4 text-gray-400">© 2025 Maverick Corp. . All rights reserved.</p>
       </footer>
     </div>
   );

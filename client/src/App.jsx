@@ -1,37 +1,53 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
-import Navbar from './components/Navbar';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar'; // Adjust the path if needed
 
-function App() {
+const backgrounds = {
+  '/': '/images/car-home.jpeg',
+  '/login': '/images/car-login.jpeg',
+  '/register': '/images/car-register.jpeg',
+  '/dashboard': '/images/car-dashboard.jpeg',
+  '/achat': '/images/car-achat.jpeg',
+  '/location': '/images/car-location.jpeg',
+  '/settings': '/images/car-settings.jpeg',
+  '/cars': '/images/car-cars.jpeg'
+};
+
+const App = () => {
+  const location = useLocation();
+  const [bgImage, setBgImage] = useState(backgrounds['/']);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const path = location.pathname;
+    const newBg = backgrounds[path] || '/images/car-default.jpg';
+
+    setFade(false);
+    setTimeout(() => {
+      setBgImage(newBg);
+      setFade(true);
+    }, 300);
+  }, [location]);
+
   return (
-    <Router>
-      {/* Common Layout */}
-      <Navbar /> {/* Navbar stays on top for all routes */}
-      <div /*className="bg-cover bg-center bg-no-repeat bg-fixed" style={{height: 700, backgroundImage: `url(gclass.jpeg')` }}*/>
-        
+    <div className="relative min-h-screen overflow-hidden font-sans">
+      
+      {/* 🎯 Background Layer */}
+      <div
+        className={`fixed inset-0 z-0 bg-cover bg-center transition-opacity duration-700 ${fade ? 'opacity-100' : 'opacity-0'}`}
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
 
-        {/* Page Content */}
-      <div className="relative min-h-screen">
-        <div className="absolute inset-0 bg-black opacity-70 z-0" />
-        <div className="relative z-10">
-        <main className="p-4">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </main>
-        </div>
-        </div>
+      {/* 🧊 Dark overlay */}
+      <div className="fixed inset-0 z-0 bg-black/50 backdrop-blur-md" />
+
+      {/* 🧱 Content Layer */}
+      <div className="relative z-10">
+        <Navbar />
+        <Outlet />
       </div>
-    </Router>
+    </div>
   );
-}
+};
 
 export default App;
-// This is the main entry point of the React application.
-// It sets up the router and defines the main layout with a Navbar and page content.

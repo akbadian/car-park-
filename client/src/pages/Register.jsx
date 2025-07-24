@@ -18,7 +18,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
+    <div className=" from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4">
       <div className="relative z-10 w-full max-w-[320px] bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-5">
         <h1 className="text-xl font-bold text-center text-white mb-3">Create Account</h1>
         <p className="text-center text-gray-400 text-sm mb-5">Sign up for a CarPark account</p>
@@ -82,7 +82,7 @@ const Register = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-linear-to-r from-purple-500 to-pink-500 text-white py-2 rounded-md font-medium hover:from-purple-600 hover:to-pink-600 focus:outline-hidden transform hover:scale-105 transition"
+            className="w-full  text-white py-2 rounded-md font-medium hover:from-purple-600 hover:to-pink-600 focus:outline-hidden transform hover:scale-105 transition"
           >
             {isLoading ? 'Creating account...' : (
               <span className="flex items-center justify-center text-sm">
